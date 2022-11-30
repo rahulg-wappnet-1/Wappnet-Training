@@ -1,5 +1,6 @@
 //Employee class stores user data name, employee id , role ,  salary
 class Employee  {
+
     //consturctor args :- first name(string) , last name(string), employee id(number)
     constructor(fname, lname, e_id ){
         this.fname = fname;
