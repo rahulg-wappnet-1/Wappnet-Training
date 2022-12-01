@@ -14,4 +14,6 @@ const admin = new emp("Jaldip" , "Patel" , 89)
 admin.setRole("Admin");
 
 admin.setSalary(80000);
-console.log(Rahul.getSalary());
+console.log(admin.getInfo());
+console.log(admin.getSalary());
+//console.log(Rahul.getSalary());

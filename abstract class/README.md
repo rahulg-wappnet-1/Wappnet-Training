@@ -9,3 +9,8 @@ Still to implement the abstract class we have created a class Animal this class 
 
 After creation new classes from parent class (Animal), these classes will inherit all the functions and properties from abstract class.
 
+# How to run
+
+-> Clone the project from github
+
+-> Run the index.html from abstract class in any browser such as chrome , mozilla firefox

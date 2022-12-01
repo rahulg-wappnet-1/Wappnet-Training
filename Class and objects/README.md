@@ -22,4 +22,6 @@ The new object is then returned as the return value of the constructor.
 As we all know in Java Script everything is Public by default . 
 To make any variable or function private we use '#' before the name of that variable or function (#varible_name).
 
+# How to run 
 
+-> node employeeobj.js

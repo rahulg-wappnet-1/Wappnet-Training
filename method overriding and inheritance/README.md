@@ -12,3 +12,11 @@ To access that method of parent class we user 'super' keyword.
 
 In our implementation we can see that multiGreet() method of Multiplicationn class is accessing greet() method of Calculator class using super keyword.
 
+# Software required to run 
+
+Any browser like chrome, mozilla firefox will work
+
+# How to run the project
+
+Clone the project from github
+Open the index.html from method overriding and inheritance folder in any browser
