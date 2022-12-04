@@ -5,45 +5,52 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in); // Scanner class object
-        Bank k = new Bank(); //Bank class object
-        Branch br; //Bank class object
-        User u; // User class object
-        SavingAccount sa; // Saving account object
-        int ch = 0; //Used to take input for choices from user
+        //Scanner class object
+        Scanner sc = new Scanner(System.in);
+
+        //Bank class object
+        Bank k = new Bank();
+
+        //Bank class object
+        Branch br;
+
+        // User class object
+        User u;
+
+        // Saving account object
+        SavingAccount sa = null;
+
+        //Used to take input for choices from user
+        int ch = 0;
         do{
             //Menu for different operations
-            System.out.println("1.Create Branch");
-            System.out.println("2.Search Branch");
-            System.out.println("3.Create User");
-            System.out.println("4.Show user list according to branch");
-            System.out.println("5.Search user");
-            System.out.println("6. All user's list");
-            System.out.println("7. Create a bank account");
-            System.out.println("8. Get user accounts list");
-            System.out.println("9. Get particular account");
-            System.out.println("10. Deposit in account");
-            System.out.println("11. Withdraw from account");
-            System.out.println("0. Exit");
-            System.out.println("Enter your choice");
+            k.mainMenu();
+
             ch = sc.nextInt();
             sc.nextLine();
+
+            //Switch for handling user choice
             switch (ch) {
-                case 1 ->
-                        //calling branch object constructor to create branch
+                case 1 ->//calling branch object constructor to create branch
                         //It takes bank object as argument
                         new Branch(k);
+
                 case 2 -> {
-                    br = k.searchBranch();//Returns branch object from array list of branch object
+                    //Returns branch object from array list of branch object
+                    br = k.searchBranch();
+
                     if (br != null) {
-                        br.getBranchDetails();//Calls the method from branch class
+                        //Calls the method from branch class
+                        br.getBranchDetails();
                     } else {
                         System.out.println("Branch does not exist");
                     }
                 }
                 case 3 -> {
-                    k.getBranchList();//Prints all the available branches
+                    //Prints all the available branches
+                    k.getBranchList();
                     br = k.searchBranch();
+
                     if (br != null) {
                         new User(br, k);//Creates new user in specific branch
                     } else {
@@ -54,27 +61,32 @@ public class Main {
                     k.getBranchList();
                     br = k.searchBranch();
                     if (br != null) {
-                        k.getUserList(br);//Prints the user list of specific branch
+                        //Prints the user list of specific branch
+                        k.getUserList(br);
                     } else {
                         System.out.println("Branch does not exist");
                     }
                 }
                 case 5 -> {
-                    u = k.searchUser();// Returns the user object from user array list
+                    // Returns the user object from user array list
+                    u = k.searchUser();
                     if (u != null) {
                         u.userDetails();
                     } else {
                         System.out.println("User does not exist");
                     }
                 }
-                case 6 -> k.allUserList();//Prints all the users listed in different branches
+                //Prints all the users listed in different branches
+                case 6 -> k.allUserList();
                 case 7 -> {
                     k.getBranchList();
                     br = k.searchBranch();
                     if (br != null) {
-                        u = br.searchUserInBranch();//Returns the user object from specific branch
+                        //Returns the user object from specific branch
+                        u = br.searchUserInBranch();
                         if (u != null) {
-                             new SavingAccount(u, br);//Creates saving account
+                            //Creates saving account
+                             new SavingAccount(u, br,k);
                         } else {
                             System.out.println("User does not exist");
                         }
@@ -131,6 +143,9 @@ public class Main {
                     }else{
                         System.out.println("User does not exist");
                     }
+                }
+                case 12 ->{
+                    sa.getTransactions();
                 }
             }
 

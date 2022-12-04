@@ -5,13 +5,17 @@ import java.util.Scanner;
 
 public class SavingAccount implements  Account {
     Scanner sc2 = new Scanner(System.in);
-    //private boolean current = false;
+    //Properties of saving account class
     private String ac_type ;
     private long balance ;
     private int account_id  ;
     User u;
     Branch br;
+    Bank b;
+    //Array list of string type to store transactions of  account
     ArrayList<String> transactions = new ArrayList<>();
+
+    //Deposit amount in specific saving account
     @Override
     public void deposit() {
         System.out.println("Enter the amount ot deposit");
@@ -21,6 +25,7 @@ public class SavingAccount implements  Account {
         transactions.add("Credited " +deposit_amount);
     }
 
+    //Withdraws account from specific saving account of user
     @Override
     public void withdraw() {
         System.out.println("Enter the amount to withdraw");
@@ -34,6 +39,8 @@ public class SavingAccount implements  Account {
         }
     }
 
+    //Add transaction detail of saving account in transaction array list
+    //Takes string as argument
     @Override
     public void transactions(String trans) {
         System.out.println("Transaction of account");
@@ -42,6 +49,9 @@ public class SavingAccount implements  Account {
         }
     }
 
+
+
+    //Gives the account details of user
     @Override
     public void getAccountDetails() {
         System.out.println("Account number :- "+this.account_id);
@@ -49,7 +59,10 @@ public class SavingAccount implements  Account {
         System.out.println("Balance :- "+this.balance);
     }
 
-    public SavingAccount( User u, Branch br) {
+
+    //Constructor of saving account class
+    //Takes user and branch object as argument
+    public SavingAccount( User u, Branch br,Bank b) {
         System.out.println("Enter the account type");
         this.ac_type = sc2.nextLine();
         System.out.println("Enter the initial amount ");
@@ -59,9 +72,20 @@ public class SavingAccount implements  Account {
         this.u = u;
         this.br = br;
         u.addAccountList(this);
+        b.addSavingAccount(this);
     }
 
+    //getter for account id
     public int getAccount_id() {
         return account_id;
     }
+
+    //get transactions
+//    public void getTransactions(){
+//        SavingAccount sa = b.searchAccount();
+//        for (int i = 0; i < sa.transactions.size(); i++) {
+//            System.out.println(sa.transactions.get(i));
+//        }
+//    }
+
 }

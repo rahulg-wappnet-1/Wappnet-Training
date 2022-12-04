@@ -17,7 +17,6 @@ public class Branch {
         System.out.println("Enter the branch name");
         this.branch_name = sc.nextLine();
         System.out.println("Enter the branch id");
-
         //this.branch_name = branch_name;
         this.branch_id = sc.nextLong();
         sc.nextLine();
@@ -59,4 +58,6 @@ public class Branch {
     public long getBranch_id() {
         return branch_id;
     }
+
+
 }
